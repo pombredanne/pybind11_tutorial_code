@@ -1,6 +1,7 @@
 #include <vector>
 
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 
 namespace py = pybind11;
 
@@ -33,7 +34,7 @@ std::vector<int> generate_primes(unsigned int how_many){
 /**
  * Generate the python bindings for this C++ function
  */
-PYBIND11_PLUGIN(prime_generator) {
+PYBIND11_PLUGIN(primes_py3) {
     py::module m("example", "Generating primes in c++ with python bindings using pybind11");
 
     m.def("generate_primes", &generate_primes, "A function which generates a list of primes. The length of the list is specified by the user");
